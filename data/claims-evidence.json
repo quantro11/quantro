@@ -1,5 +1,5 @@
 {
-  "uretim": "2026-11-23T16:10:53.655Z",
+  "uretim": "2026-11-24T15:59:33.928Z",
   "surum": 1,
   "ozet": {
     "iddia": 3,
@@ -31,9 +31,13 @@
           "etiket": "Depo oluşturma tarihi + MIT lisansı",
           "url": "https://github.com/Lennebraha38/quantro",
           "makineDogrulama": "github-repo",
-          "durum": "bilinmiyor",
-          "sonuc": null,
-          "hata": "HTTP 403"
+          "durum": "dogrulandi",
+          "sonuc": {
+            "dogrulukDogru": true,
+            "deger": "MIT · oluşturma: 2026-07-01T09:31:56Z",
+            "kanit": "Depo 2026-07-01T09:31:56Z tarihinde açıldı, lisans MIT.",
+            "url": "https://github.com/quantro11/quantro"
+          }
         },
         {
           "tur": "kaynak",
@@ -64,8 +68,8 @@
       ],
       "ozet": {
         "toplam": 4,
-        "dogrulanan": 3,
-        "bilinmiyor": 1,
+        "dogrulanan": 4,
+        "bilinmiyor": 0,
         "yanlis": 0,
         "durum": "dogrulandi"
       }
