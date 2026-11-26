@@ -6,7 +6,7 @@ geçirildikten sonra pull request açabilirsin.
 ## Başlarken
 
 ```bash
-git clone https://github.com/Lennebraha38/quantro.git
+git clone https://github.com/quantro11/quantro.git
 cd quantro
 npm ci
 npm run build   # bütünlük kontrolü

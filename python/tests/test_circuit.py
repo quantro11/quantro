@@ -1,6 +1,5 @@
 import unittest
-import math
-from quantro.circuit import QuantumCircuit, bell_state, ghz_state
+from quantro.circuit import QuantumCircuit, bell_state
 
 
 class TestCircuit(unittest.TestCase):

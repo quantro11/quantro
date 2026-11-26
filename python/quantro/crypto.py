@@ -7,7 +7,7 @@ eavesdropper (Eve) interception, quantum bit error rate (QBER) analysis, and fin
 from __future__ import annotations
 import random
 from dataclasses import dataclass
-from typing import List, Dict, Any, Tuple
+from typing import List
 
 
 @dataclass

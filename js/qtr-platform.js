@@ -19,9 +19,16 @@
       .then((d) => {
         const lat = Math.round(performance.now() - t0);
         if (d && d.success && Array.isArray(d.data)) {
-          const hex = "0x" + d.data.map((b) => b.toString(16).padStart(2, "0")).join("").toUpperCase().slice(0, 10);
+          const hex =
+            "0x" +
+            d.data
+              .map((b) => b.toString(16).padStart(2, "0"))
+              .join("")
+              .toUpperCase()
+              .slice(0, 10);
           if (streamEl) streamEl.textContent = hex;
-          if (entropyEl) entropyEl.textContent = (7.984 + Math.random() * 0.012).toFixed(3) + " bits/B";
+          if (entropyEl)
+            entropyEl.textContent = (7.984 + Math.random() * 0.012).toFixed(3) + " bits/B";
           if (latencyEl) latencyEl.textContent = lat + "ms";
           if (statusEl) statusEl.textContent = "CANLI VAKUM AKIŞI";
         } else {
@@ -101,15 +108,24 @@
       const newB = inv * (qState.alpha - qState.beta);
       qState = { alpha: newA, beta: newB, label: "(|0⟩ + |1⟩)/√2" };
     } else if (gate === "X") {
-      qState = { alpha: qState.beta, beta: qState.alpha, label: qState.alpha >= 0.7 ? "|1⟩" : "|0⟩" };
+      qState = {
+        alpha: qState.beta,
+        beta: qState.alpha,
+        label: qState.alpha >= 0.7 ? "|1⟩" : "|0⟩",
+      };
     } else if (gate === "Z") {
-      qState = { alpha: qState.alpha, beta: -qState.beta, label: Math.abs(qState.beta) > 0.01 ? "(|0⟩ - |1⟩)/√2" : "|0⟩" };
+      qState = {
+        alpha: qState.alpha,
+        beta: -qState.beta,
+        label: Math.abs(qState.beta) > 0.01 ? "(|0⟩ - |1⟩)/√2" : "|0⟩",
+      };
     }
     renderHeroQubit();
   };
 
   window.copyHeroPython = function () {
-    const code = "import quantro as qtr\nqc = qtr.QuantumCircuit(1)\nqc.h(0)\nprint(qc.get_probabilities())";
+    const code =
+      "import quantro as qtr\nqc = qtr.QuantumCircuit(1)\nqc.h(0)\nprint(qc.get_probabilities())";
     navigator.clipboard.writeText(code).then(() => {
       const el = document.getElementById("hero-copy-py-btn");
       if (el) {
@@ -124,80 +140,94 @@
     1: {
       title: "Kubit Devre Simülatörü",
       formula: "|ψ⟩ = ∑ c_i |i⟩,  ∑ |c_i|² = 1",
-      matrix: "H = 1/√2 [[1, 1], [1, -1]],  X = [[0, 1], [1, 0]],  CNOT = [[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]]",
-      python: "import quantro as qtr\nqc = qtr.QuantumCircuit(2)\nqc.h(0).cx(0, 1)\nprint('Probabilities:', qc.get_probabilities())\nprint(qc.to_qasm())",
+      matrix:
+        "H = 1/√2 [[1, 1], [1, -1]],  X = [[0, 1], [1, 0]],  CNOT = [[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]]",
+      python:
+        "import quantro as qtr\nqc = qtr.QuantumCircuit(2)\nqc.h(0).cx(0, 1)\nprint('Probabilities:', qc.get_probabilities())\nprint(qc.to_qasm())",
     },
     2: {
       title: "ANU Canlı Kuantum Rastgelelik Motoru",
       formula: "S = -∑ p_i log₂(p_i)  [Shannon Entropisi]",
       matrix: "ρ_vacuum = 1/2 (|0⟩⟨0| + |1⟩⟨1|)",
-      python: "from quantro import QRNG\nres = QRNG.get_hex(length=16)\nprint('Hex:', res['data'], 'Entropy:', res['entropy'])",
+      python:
+        "from quantro import QRNG\nres = QRNG.get_hex(length=16)\nprint('Hex:', res['data'], 'Entropy:', res['entropy'])",
     },
     3: {
       title: "BB84 Kuantum Anahtar Dağıtımı (QKD)",
       formula: "QBER = N_hata / N_sifted  (Eşik: %11)",
       matrix: "{|0⟩, |1⟩} [Düzlem +]  ⟷  {|+⟩, |-⟩} [Çapraz ×]",
-      python: "from quantro.crypto import BB84\nres = BB84.simulate(num_qubits=128, eve_present=False)\nprint('Shared Secret Key:', res.final_key)",
+      python:
+        "from quantro.crypto import BB84\nres = BB84.simulate(num_qubits=128, eve_present=False)\nprint('Shared Secret Key:', res.final_key)",
     },
     4: {
       title: "Bloch Küresi Görselleştirici",
       formula: "|ψ⟩ = cos(θ/2)|0⟩ + e^{iφ}sin(θ/2)|1⟩",
       matrix: "x = sin θ cos φ,  y = sin θ sin φ,  z = cos θ",
-      python: "from quantro.bloch import BlochSphere\nbloch = BlochSphere().apply_h()\nprint(bloch.get_coordinates())",
+      python:
+        "from quantro.bloch import BlochSphere\nbloch = BlochSphere().apply_h()\nprint(bloch.get_coordinates())",
     },
     5: {
       title: "Heisenberg Belirsizlik İlkesi",
       formula: "Δx · Δp ≥ ℏ / 2  (ℏ = 1.05457 × 10⁻³⁴ J·s)",
       matrix: "[x̂, p̂] = iℏ I",
-      python: "from quantro.physics import heisenberg_uncertainty\nres = heisenberg_uncertainty(delta_x=1e-10)\nprint('Min Δp:', res['min_delta_p_kg_m_s'])",
+      python:
+        "from quantro.physics import heisenberg_uncertainty\nres = heisenberg_uncertainty(delta_x=1e-10)\nprint('Min Δp:', res['min_delta_p_kg_m_s'])",
     },
     6: {
       title: "Kuantum Tünelleme (Bariyer Geçirgenliği)",
       formula: "T = [1 + (V₀² sinh²(κ a)) / (4E(V₀ - E))]⁻¹",
       matrix: "κ = √(2m(V₀ - E)) / ℏ",
-      python: "from quantro.physics import quantum_tunneling\nT = quantum_tunneling(barrier_width_nm=0.5, barrier_height_ev=10.0, particle_energy_ev=8.5)\nprint('T:', T['transmission_coefficient_T'])",
+      python:
+        "from quantro.physics import quantum_tunneling\nT = quantum_tunneling(barrier_width_nm=0.5, barrier_height_ev=10.0, particle_energy_ev=8.5)\nprint('T:', T['transmission_coefficient_T'])",
     },
     7: {
       title: "Çift Yarık Kuantum Girişimi",
       formula: "I(θ) = I₀ cos²(π d sin θ / λ)",
       matrix: "λ = h / p  (de Broglie bağıntısı)",
-      python: "from quantro.physics import double_slit_interference\nres = double_slit_interference(wavelength_nm=500.0, slit_distance_um=20.0)\nprint('Nokta sayısı:', len(res['pattern']))",
+      python:
+        "from quantro.physics import double_slit_interference\nres = double_slit_interference(wavelength_nm=500.0, slit_distance_um=20.0)\nprint('Nokta sayısı:', len(res['pattern']))",
     },
     8: {
       title: "Kuantum Işınlama (Teleportation)",
       formula: "(α|0⟩ + β|1⟩) ⊗ |Φ⁺⟩ ⟶ |ψ⟩_Bob",
       matrix: "|Φ⁺⟩ = (|00⟩ + |11⟩) / √2",
-      python: "from quantro.physics import quantum_teleportation\nres = quantum_teleportation()\nprint('Durum:', res['success'])",
+      python:
+        "from quantro.physics import quantum_teleportation\nres = quantum_teleportation()\nprint('Durum:', res['success'])",
     },
     9: {
       title: "Schrödinger'in Kedisi & Dekolerans",
       formula: "|ψ⟩ = (|Canlı⟩ + |Ölü⟩) / √2",
       matrix: "ρ(t) = [[0.5, 0.5 e^{-γ t}], [0.5 e^{-γ t}, 0.5]]",
-      python: "from quantro.physics import schrodinger_cat\nres = schrodinger_cat(decay_probability=0.5, observe=True)\nprint(res['observation'])",
+      python:
+        "from quantro.physics import schrodinger_cat\nres = schrodinger_cat(decay_probability=0.5, observe=True)\nprint(res['observation'])",
     },
     10: {
       title: "Kuantum Yürüyüşü (Quantum Walk)",
       formula: "σ_kuantum ≈ N  vs  σ_klasik ≈ √N",
       matrix: "H_coin = 1/√2 [[1, 1], [1, -1]]",
-      python: "from quantro.physics import quantum_walk\nqw = quantum_walk(steps=30)\nprint('Hızlanma:', qw['quantum_speedup'])",
+      python:
+        "from quantro.physics import quantum_walk\nqw = quantum_walk(steps=30)\nprint('Hızlanma:', qw['quantum_speedup'])",
     },
     11: {
       title: "Kara Delik Termodinamiği",
       formula: "T_H = ℏ c³ / (8π G M k_B),  r_s = 2GM / c²",
       matrix: "S_BH = k_B c³ A / (4 G ℏ)",
-      python: "from quantro.astrophysics import black_hole\nbh = black_hole(mass_solar=10.0)\nprint('Schwarzschild (km):', bh.schwarzschild_radius_km)",
+      python:
+        "from quantro.astrophysics import black_hole\nbh = black_hole(mass_solar=10.0)\nprint('Schwarzschild (km):', bh.schwarzschild_radius_km)",
     },
     12: {
       title: "Evren Yaşı & Kozmik Genişleme",
       formula: "t₀ = (2 / (3 H₀ √Ω_Λ)) · arcsinh(√(Ω_Λ / Ω_m))",
       matrix: "H₀ = 67.4 km/s/Mpc,  Ω_m = 0.315,  Ω_Λ = 0.685",
-      python: "from quantro.astrophysics import universe_age\nu = universe_age()\nprint(f'{u.age_gyr} Gyr')",
+      python:
+        "from quantro.astrophysics import universe_age\nu = universe_age()\nprint(f'{u.age_gyr} Gyr')",
     },
     13: {
       title: "Görelilikçi Doppler Etkisi",
       formula: "1 + z = √((1 + β) / (1 - β)),  β = v / c",
       matrix: "λ_gözlenen = λ₀ (1 + z)",
-      python: "from quantro.astrophysics import relativistic_doppler\nres = relativistic_doppler(velocity_km_s=30000)\nprint('Redshift z:', res['redshift_z'])",
+      python:
+        "from quantro.astrophysics import relativistic_doppler\nres = relativistic_doppler(velocity_km_s=30000)\nprint('Redshift z:', res['redshift_z'])",
     },
   };
 

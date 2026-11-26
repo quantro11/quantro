@@ -58,7 +58,7 @@ const KONTROLLER = {
     };
   },
   "github-repo": async () => {
-    const j = await get("https://api.github.com/repos/Lennebraha38/quantro");
+    const j = await get("https://api.github.com/repos/quantro11/quantro");
     return {
       dogrulukDogru: true,
       deger: `${j.license ? j.license.spdx_id : "?"} · oluşturma: ${j.created_at}`,
@@ -126,7 +126,7 @@ const KONTROLLER = {
       dogrulukDogru: dolu === LANGS.length,
       deger: `${dolu}/${LANGS.length} dil tam (${Object.values(sayilar)[0]}/${anahtar} anahtar)`,
       kanit: `8 dilin tamamı da ${anahtar} anahtarın tamamına sahip; boş çeviri yok.`,
-      url: "https://github.com/Lennebraha38/quantro/tree/main/lab",
+      url: "https://github.com/quantro11/quantro/tree/main/lab",
     };
   },
   // Bağımsız üçüncü taraf zaman damgası. Kendi sunucumuz da yalan söyleyemez;

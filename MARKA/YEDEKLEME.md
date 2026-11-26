@@ -16,7 +16,7 @@ katmanı yalnızca yorum/beğeni/bülten; gerekirse tamamen çalışmadan devam 
 
 ## 2) Geri yükleme sırası (taze makine)
 
-1. `git clone git@github.com:Lennebraha38/quantro.git && cd quantro`
+1. `git clone git@github.com:quantro11/quantro.git && cd quantro`
 2. `npm ci`
 3. `node scripts/gen-blog.mjs && npm run sitemap` (üretilenler zaten commit'te;
    değişiklik varsa bu adım günceller)

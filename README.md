@@ -9,8 +9,8 @@ bağımlılıksız (dependency-free) çalışır.
 [![Lisans MIT](https://img.shields.io/badge/license-MIT-00c8f0)](./LICENSE)
 [![Bağımlılık yok](https://img.shields.io/badge/dependencies-0-00c8f0)]()
 [![npm: quantro-js](https://img.shields.io/badge/npm-quantro--js-00c8f0)](https://www.npmjs.com/package/quantro-js)
-[![Test](https://img.shields.io/github/actions/workflow/status/Lennebraha38/quantro/node.js.yml?branch=main&label=CI)](https://github.com/Lennebraha38/quantro/actions)
-[![Stars](https://img.shields.io/github/stars/Lennebraha38/quantro?style=social)]()
+[![Test](https://img.shields.io/github/actions/workflow/status/quantro11/quantro/node.js.yml?branch=main&label=CI)](https://github.com/quantro11/quantro/actions)
+[![Stars](https://img.shields.io/github/stars/quantro11/quantro?style=social)]()
 
 ---
 
@@ -28,7 +28,8 @@ bağımlılıksız (dependency-free) çalışır.
 - **Yönetim paneli** (`/qtr-admin.html`): giriş korumalı CMS — token doğrulama,
   rate-limit, blog/posta/şifreleme yönetimi.
 - **KVKK uyumlu** çerez onayı + gizlilik.
-- **PWA / Service Worker**: `manifest.webmanifest` + `sw.js` (offsay önbelleği).
+- **PWA / Service Worker**: `manifest.webmanifest` + `sw.js` (çevrimdışı önbelleği).
+- **Python SDK (`quantro`)**: sıfır harici bağımlılıklı Python 3.9+ paketi (`python/quantro/` — devre simülatörü, ANU QRNG, BB84, Bloch küresi, kara delik & evren yaşı, OpenQASM/Qiskit dışa aktarım ve `quantro` CLI).
 
 ---
 
@@ -109,13 +110,21 @@ Gereksinim: **Node.js ≥ 18**. Runtime (site + `/api`) harici npm paketi içerm
 yalnızca test araçları devDependency'dir.
 
 ```bash
-git clone https://github.com/Lennebraha38/quantro.git
+git clone https://github.com/quantro11/quantro.git
 cd quantro
 npm ci                # lock'a göre kurulum
 npm run build         # bütünlük kontrolü (HTML referansları + vercel.json)
-npm test              # 44 birim testi (simülatör + API güvenliği + handler'lar + içerik-i18n)
+npm test              # 71+ birim testi (simülatör + API güvenliği + handler'lar + içerik-i18n + zenai)
 npm run test:coverage # eşik kontrollü kapsam (satır 80% · dal 75% · fonksiyon 85%)
-npm run check         # build + test birlikte
+npm run check         # lint + html-lint + format + build + test + grid + glsl + prior-art
+```
+
+Python SDK (`python/quantro/`) kurulumu ve testleri:
+
+```bash
+pip install git+https://github.com/quantro11/quantro.git
+PYTHONPATH=python pytest python/tests/ -v   # 20 Python SDK birim testi
+quantro --help
 ```
 
 Tarayıcı E2E testleri (12 senaryo) için önce Playwright tarayıcısı:
@@ -205,11 +214,16 @@ HMAC-SHA256 (`AUTH_SECRET`) ile imzalı, 2 saat geçerli bir oturum token'ı ür
 ## Test & CI
 
 ```bash
-npm test                 # 44 birim testi
+npm test                 # 71+ birim testi (Node)
 └── test/quantro.test.js # Kuantum simülatör (X, H, CX, Bell, GHZ, seeded PRNG)
 └── test/_lib.test.js    # JWT doğrulama, scrypt, rate-limiter, auth katmanı
 └── test/api-handlers.test.js # api/auth · comments · blog (mock fetch)
+└── test/api-extra.test.js    # api/health · stats · newsletter
 └── test/localize.test.js     # blog içerik yerelleştirme (blog-localize.js)
+└── test/security.test.js     # CSP & güvenlik başlıkları
+└── test/zenai.test.js        # ZENAI proxy dayanıklılık ve hız sınırı
+
+PYTHONPATH=python pytest python/tests/ -v  # 20 Python SDK birim testi
 
 npm run test:e2e         # 12 E2E (Playwright + Chromium)
 └── test/e2e.test.js     # sayfa render, lab(13 araç/QRNG/QuantumCircuit),
@@ -245,7 +259,7 @@ PR'lere Vercel önizleme deploy'u: `.github/workflows/preview.yml`
 - PWA Service Worker, JSON-LD SEO, **8 dil i18n** — ana site (`app.js` I18N),
   lab (`/lab/` + `lab-core.js`) ve blog arayüzü (`blog-i18n.js`) ortak `qlang`
   ile; RTL (Arapça) destekli. Yönetim paneli TR/EN (`admin-i18n.js`).
-  **Blog içeriği**: TR kaynak doyalar `blog-articles/*.tr.md` + 7 çeviri
+  **Blog içeriği**: TR kaynak dosyalar `blog-articles/*.tr.md` + 7 çeviri
   (`*.en|fr|es|it|ru|ko|ar.md`) → `blog_posts_i18n` üzerinden aktif dille
   gösterilir (`blog-localize.js`); çevirisi olmayan dilde TR yazı gösterilir.
 - **Core Web Vitals** E2E içinde ölçülür (`test/e2e.test.js` — CWV senaryosu):

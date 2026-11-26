@@ -8,7 +8,7 @@ from __future__ import annotations
 import cmath
 import math
 import random
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Any
 
 # Standard 1-qubit unitary matrices
 SQRT2_INV = 1.0 / math.sqrt(2)
@@ -268,7 +268,6 @@ class QuantumCircuit:
         """Samples measurement outcomes based on statevector probabilities."""
         rng = random.Random(seed)
         probs = [(amp.real ** 2 + amp.imag ** 2) for amp in self.state]
-        indices = list(range(self.dim))
 
         counts: Dict[str, int] = {}
         # Cumulative distribution for quick sampling

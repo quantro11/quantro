@@ -2322,7 +2322,6 @@ footer {
   color: var(--copper-400);
 }
 
-
 /* ═════════════════════════════════════════════════════════════
    QUANTRO DEEP-TECH PLATFORM STYLES (#09090B / BENTO / CLI)
    ═════════════════════════════════════════════════════════════ */
@@ -2330,14 +2329,22 @@ footer {
 /* ── Canlı Kuantum Telemetri Barı ── */
 .qtr-telemetry-bar {
   width: 100%;
-  background: rgba(9, 9, 11, 0.88);
+  background: rgba(9, 9, 11, 0.92);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  left: 0;
+  right: 0;
+  z-index: 110;
   font-family: var(--fm);
   font-size: 11px;
+}
+.qtr-telemetry-bar + #nav {
+  top: 39px;
+}
+.qtr-telemetry-bar ~ #main-content #hero {
+  padding-top: 116px;
 }
 .qtr-tel-inner {
   max-width: 1280px;
@@ -2366,8 +2373,15 @@ footer {
   animation: qtrPulse 2s infinite ease-in-out;
 }
 @keyframes qtrPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
 }
 .qtr-tel-label {
   color: #10b981;

@@ -11,7 +11,7 @@ import secrets
 import time
 import urllib.request
 import urllib.error
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any
 
 ANU_URL = "https://qrng.anu.edu.au/API/jsonI.php"
 

@@ -6,7 +6,7 @@ Python scripts, Qiskit executable programs, OpenQASM, and JSON data.
 
 from __future__ import annotations
 import json
-from typing import Any, Dict
+from typing import Any
 
 
 def export_to_python(circuit) -> str:

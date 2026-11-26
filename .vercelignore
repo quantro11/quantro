@@ -12,8 +12,12 @@ test/
 # Blog içerik kaynakları (artık hem RSS yedeği hem istatistik için lambda'ya gerekli)
 # blog-articles/
 
-# Bağımlılıklar / yerel
+# Bağımlılıklar / yerel / Python SDK
 node_modules/
+python/
+pyproject.toml
+setup.py
+build/
 .git/
 *.log
 .env

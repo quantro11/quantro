@@ -368,7 +368,7 @@ export default function QuantroHeroBento() {
                 Canlı Laboratuvar (Web)
               </a>
               <a
-                href="https://github.com/quantro38/quantro"
+                href="https://github.com/quantro11/quantro"
                 target="_blank"
                 rel="noreferrer"
                 className="px-4 py-2.5 rounded-lg border border-white/10 bg-transparent text-zinc-400 hover:text-white hover:border-white/20 text-sm font-mono transition flex items-center space-x-1.5"

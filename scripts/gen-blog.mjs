@@ -21,7 +21,7 @@ const TITLES_DATE = {
 };
 
 const AUTHOR = "Quantro Araştırma Ekibi";
-const AUTHOR_URL = "https://github.com/quantro38";
+const AUTHOR_URL = "https://github.com/quantro11";
 
 function parseTokenize(md) {
   const lines = md.split("\n");

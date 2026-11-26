@@ -1,7 +1,7 @@
 /* ═════════════════════════════════════════════════════════
    QUANTRO · ZENAI SENKRONİZASYONU
    ── Ne yapar?
-     Lennebraha38/ZENAI deposunun main dalındaki son commit'i
+     quantro11/ZENAI deposunun main dalındaki son commit'i
      (sha, tarih, başlık) data/zenai.json'a yazar. Site bu JSON'u
      client-side okuyup rozeti günceller; böylece ZENAI'da bir
      değişiklik olduğunda site de (deploy sonrası) otomatik yansır.
@@ -19,7 +19,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const out = path.join(root, "data", "zenai.json");
-const REPO = "Lennebraha38/ZENAI";
+const REPO = "quantro11/ZENAI";
 const BRANCH = "main";
 const checkOnly = process.argv.includes("--check");
 const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";

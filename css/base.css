@@ -69,9 +69,7 @@
 
   /* Modern Tipografi (Inter/Geist + JetBrains Mono) */
   --fd: "Inter", "IBM Plex Serif", Georgia, serif;
-  --fb:
-    "Inter", "IBM Plex Sans", -apple-system, BlinkMacSystemFont,
-    sans-serif;
+  --fb: "Inter", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
   --fm: "JetBrains Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 }
 

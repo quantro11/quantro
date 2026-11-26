@@ -29,8 +29,8 @@ classifiers = [
 [project.urls]
 Homepage = "https://quantro-1.vercel.app"
 Documentation = "https://quantro-1.vercel.app/docs.html"
-Repository = "https://github.com/Lennebraha38/quantro"
-Issues = "https://github.com/Lennebraha38/quantro/issues"
+Repository = "https://github.com/quantro11/quantro"
+Issues = "https://github.com/quantro11/quantro/issues"
 
 [project.scripts]
 quantro = "quantro.cli:main"

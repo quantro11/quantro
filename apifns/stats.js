@@ -3,7 +3,7 @@
 // GitHub yıldız/fork, npm indirme, blog yazısı sayısı.
 // Dış API'ler 10 dk önbelleklenir (Vercel sunucusuz yeniden ısınmayı azaltır).
 // ═══════════════════════════════════════════════════════════
-const GITHUB = "Lennebraha38/quantro";
+const GITHUB = "quantro11/quantro";
 const NPM = "quantro-js";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 let cache = { at: 0, data: null };

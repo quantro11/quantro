@@ -58,6 +58,24 @@ jobs:
       - run: npm ci
       - run: npm run test:coverage
 
+  python:
+    name: Python SDK (py3.11)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pytest ruff
+      - name: Ruff statik kontrol (Python SDK)
+        run: ruff check --select E9,F821,F811,F401,F841,B python/ setup.py
+      - name: Python SDK birim testleri
+        env:
+          PYTHONPATH: python
+        run: pytest python/tests/ -v
+      - name: Paket kurulum ve CLI duman testi
+        run: pip install --no-deps -e . && quantro --help >/dev/null
+
   e2e:
     name: E2E (Playwright · Chromium)
     runs-on: ubuntu-latest

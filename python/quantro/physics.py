@@ -7,8 +7,7 @@ Double Slit interference, Schrödinger's Cat decoherence, Quantum Walk, and Quan
 from __future__ import annotations
 import math
 import random
-from dataclasses import dataclass
-from typing import List, Dict, Any, Tuple
+from typing import List, Dict, Any
 
 # Physical constants (SI units)
 H_BAR = 1.054571817e-34  # J*s (Planck constant / 2pi)

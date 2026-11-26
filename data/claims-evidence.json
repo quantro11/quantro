@@ -1,5 +1,5 @@
 {
-  "uretim": "2026-11-26T15:28:14.434Z",
+  "uretim": "2026-11-26T20:25:15.146Z",
   "surum": 1,
   "ozet": {
     "iddia": 3,
@@ -29,7 +29,7 @@
         {
           "tur": "github",
           "etiket": "Depo oluşturma tarihi + MIT lisansı",
-          "url": "https://github.com/Lennebraha38/quantro",
+          "url": "https://github.com/quantro11/quantro",
           "makineDogrulama": "github-repo",
           "durum": "dogrulandi",
           "sonuc": {
@@ -100,7 +100,7 @@
         {
           "tur": "kaynak",
           "etiket": "3 kademeli yedek: ANU proxy → ANU doğrudan → NIST beacon → Web Crypto",
-          "url": "https://github.com/Lennebraha38/quantro/blob/main/lab-core.js",
+          "url": "https://github.com/quantro11/quantro/blob/main/lab-core.js",
           "makineDogrulama": "yok",
           "durum": "manuel",
           "sonuc": null
@@ -122,14 +122,14 @@
         {
           "tur": "kaynak",
           "etiket": "8 dil dosyası, her biri tam (çeviri boşluğu yok)",
-          "url": "https://github.com/Lennebraha38/quantro/tree/main/lab",
+          "url": "https://github.com/quantro11/quantro/tree/main/lab",
           "makineDogrulama": "i18n-8",
           "durum": "dogrulandi",
           "sonuc": {
             "dogrulukDogru": true,
             "deger": "8/8 dil tam (205/205 anahtar)",
             "kanit": "8 dilin tamamı da 205 anahtarın tamamına sahip; boş çeviri yok.",
-            "url": "https://github.com/Lennebraha38/quantro/tree/main/lab"
+            "url": "https://github.com/quantro11/quantro/tree/main/lab"
           }
         },
         {

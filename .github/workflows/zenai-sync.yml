@@ -1,6 +1,6 @@
 name: ZENAI Senkron
 
-# Lennebraha38/ZENAI deposunda yeni commit oldukça data/zenai.json
+# quantro11/ZENAI deposunda yeni commit oldukça data/zenai.json
 # güncellenir → otomatik commit → Vercel yeniden dağıtır → rozet tazelenir.
 on:
   schedule:

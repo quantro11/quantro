@@ -20,7 +20,7 @@
 - [Kuantum Dolanıklık](https://quantro-1.vercel.app/blog.html#kuantum-dolaniklik): Einstein-Podolsky-Rosen paradoksu ve ölçüm.
 
 ## Güvenilirlik
-- Lisans: MIT · Kaynak: https://github.com/Lennebraha38/quantro
+- Lisans: MIT · Kaynak: https://github.com/quantro11/quantro
 - Canlı kuantum kaynağı: ANU (Avustralya Ulusal Üniversitesi) QRNG.
 - İletişim: quantro38@gmail.com
 - İçerik üretiminde yapay zekâ destekli araçlar kullanılabilir; teknik içerik kaynaklarla doğrulanır.
